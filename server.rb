@@ -1,7 +1,6 @@
 require 'socket'
 require 'rubycards'
 include RubyCards
-require 'pry'
 
 class Card
   def value
@@ -18,7 +17,7 @@ end
 wins = 0
 games = 0
 
-port = 8081
+port = ENV['PORT'] || ARGV[1].to_i || 8080
 socketServer = TCPServer.open(port)
 puts "starting socket server on port #{port}"
 
